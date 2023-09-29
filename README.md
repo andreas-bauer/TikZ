@@ -26,6 +26,13 @@ Created by [Michael Dorner](https://github.com/michaeldorner)
 
 Created by [Michael Dorner](https://github.com/michaeldorner)
 
+### Taxable transactions: [taxable-transactions.tex](./taxable-transactions.tex)
+
+![taxable transactions](./taxable-transactions.png)
+
+Created by [Michael Dorner](https://github.com/michaeldorner)
+
+
 ## License
 
 Copyright © 2023 Andreas Bauer
