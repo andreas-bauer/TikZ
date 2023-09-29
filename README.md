@@ -1,6 +1,6 @@
 # Beauty and the TikZ
 
-This is collection of my and other TikZ figures.
+This is collection of my and others' TikZ figures.
 
 ## My Figures
 
