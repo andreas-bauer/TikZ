@@ -1,18 +1,18 @@
 # Beauty and the TikZ
 
-This is collection of my and others Tikz figures.
+This is collection of my and other TikZ figures.
 
 ## My Figures
 
 ### Goals, gaps, and requirements: [goals-gaps-rq.tex](./goals-gaps-rq.tex)
 
-Example: ![goals,gaps](./goals-gaps-rq.png)
+![goals,gaps](./goals-gaps-rq.png)
 
 ### Future research/studies: [future-research.tex](./future-research.tex)
 
 ![future research](./future-research.png)
 
-## External sources
+## Other contributions
 
 ### Code review: [code_review.tex](https://gist.github.com/michaeldorner/ebc6a07ad83ff819d692858f593e0d11)
 
@@ -31,7 +31,6 @@ Created by [Michael Dorner](https://github.com/michaeldorner)
 ![taxable transactions](./taxable-transactions.png)
 
 Created by [Michael Dorner](https://github.com/michaeldorner)
-
 
 ## License
 
