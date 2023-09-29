@@ -1,0 +1,107 @@
+\documentclass[tikz,border=1cm]{standalone}
+\usepackage{tikz}
+\begin{document}
+
+
+% Tikz Library
+\usetikzlibrary{ shapes.multipart, arrows.meta, math, arrows, positioning}
+
+%\definecolor{ColGoal}{RGB}{0, 77, 64}
+\definecolor{ColGoal}{RGB}{0, 0, 0}
+\definecolor{ColFGoal}{RGB}{224, 242, 241}
+
+%\definecolor{ColGap}{RGB}{49, 27, 146}
+\definecolor{ColGap}{RGB}{0, 0, 0}
+\definecolor{ColFGap}{RGB}{237, 231, 246}
+
+%\definecolor{ColRQ}{RGB}{13, 71, 161}
+\definecolor{ColRQ}{RGB}{0, 0, 0}
+\definecolor{ColFRQ}{RGB}{227, 242, 253}
+
+% Define X (columns) and Y (rows) coordinates
+\tikzmath{
+\x1=0.4; \x2=1; \x3=1.6; \x4=2.61;
+\yHeader= 0.5;
+}
+
+\tikzset{%
+	a/.style={
+		-angle 90,
+		thick,
+		rounded corners=5,
+	},
+	box/.style={
+		rectangle,
+		rounded corners=2,
+		draw=black,
+		minimum width=12em,
+		text width=10em,
+		minimum height=2em,
+		inner sep=5pt,
+		text centered,
+	},
+}
+
+\begin{tikzpicture}[font=\small, xscale=5]
+
+% Header
+\node[] (themes) at (\x1 , \yHeader) {\textbf{Overall Goal}};
+\node[] (goals) at (\x2 , \yHeader) {\textbf{Goals}};
+\node[] (gaps)  at (\x3 , \yHeader) {\textbf{Gaps}};
+\node[] (rq)    at (\x4 , \yHeader) {\textbf{Research Question}};
+
+\draw[->] (themes) -- (goals) node[midway, above] {\scriptsize \textit{inspires}};
+\draw[->] (goals) -- (gaps) node[midway, above, text width=5em] {\scriptsize \textit{achieved by overcomming}};
+\draw[->] (gaps) -- (rq) node[midway, above] {\scriptsize \textit{addressed by}};
+\draw (0,0) -- (\x4+0.8,0);
+
+% Themes
+\node[box] (theme) at (\x1, -1) {\textbf{Collaborative GUI-based testing}};
+
+% Goals
+\node[box, ColGoal, fill=ColFGoal] (g1) at (\x2, -2.5) {G1: Understanding};
+\node[box, ColGoal, fill=ColFGoal] (g2) at (\x2, -14) {G2: Operationalization};
+
+% Gaps
+\node[box, ColGap, fill=ColFGap] (gap1) at (\x3, -4) {Gap 1: Processes for collaboration};
+\node[box, ColGap, fill=ColFGap] (gap2) at (\x3, -9) {Gap 2: Discussions around artifact changes}; 
+\node[box, ColGap, fill=ColFGap] (gap3) at (\x3, -15.5) {Gap 3: GUI-based testing approach};
+
+% Chapter 2
+\node[box, minimum width=24em, anchor=north, rectangle split, rectangle split parts=2, below = of gap1] at (\x4, -4.1) (chap2){
+\nodepart{one}\textbf{Chapter 2} \\(Experience Report)
+\nodepart{two} \\[2em]$ $}; 
+\node[box,text width=22em, ColRQ, fill=ColFRQ, below = -1.2 of chap2] (rq1) {RQ1: What are the processes and tools of a collaborative workflow for GUI-based testing artifacts?};
+
+% Chapter 3
+\node[box, minimum width=24em, text width=13em, anchor=north, rectangle split, rectangle split parts=2] at (\x4, -10.1) (chap3){
+\nodepart{one}\textbf{Chapter 3} \\(Systematic Literature Review)
+\nodepart{two} \\[5.6em]$ $}; 
+\node[box, text width=22em, ColRQ, fill=ColFRQ, below = -2.4 of chap3] (rq2) {RQ2.1: What are guidelines for GUI-based test artifact review?};
+\node[box, text width=22em, ColRQ, fill=ColFRQ, below = .2 of rq2] (rq22) {RQ2.2: What guidelines for source/test code review that can be mapped to GUI-based testing artifacts?};
+
+% Chapter 4
+\node[box, minimum width=24em, anchor=north, rectangle split, rectangle split parts=2] at (\x4, -16.6) (chap4){
+\nodepart{one}\textbf{Chapter 4}\\(Experiment)
+\nodepart{two} \\[5,6em]$ $}; 
+\node[box, text width=22em, ColRQ, fill=ColFRQ, below = -2.4 of chap4] (rq3) {RQ3.1: Is Augmented Testing an \\efficient approach to GUI-based testing?};
+\node[box, text width=22em, ColRQ, fill=ColFRQ, below = .2 of rq3] (rq32) {RQ3.2: What are the\\usability issues of Augmented Testing?};
+    
+% Edges connecting nodes
+\draw[a] (theme.south) |- (g1.west);
+\draw[a] (theme.south) |- (g2.west);
+
+\draw[a, ColGoal] (g1.south) |- (gap1.west);
+\draw[a, ColGoal] (g1.south) |- (gap2.west);
+\draw[a, ColGoal] (g2.south) |- (gap3.west);
+
+\draw[a, ColGap] (gap1) |- (rq1);
+\draw[a, ColGap] (gap2) |- (rq2);
+\draw[a, ColGap] (gap2) |- (rq22);
+\draw[a, ColGap] (gap3) |- (rq3);
+\draw[a, ColGap] (gap3) |- (rq32);
+
+\draw[a, dotted] (gap1.south west) -- (gap2.north west) node[pos=0.8, right] {\textit{motivates}};
+
+\end{tikzpicture}
+\end{document}

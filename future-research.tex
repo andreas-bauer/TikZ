@@ -1,0 +1,71 @@
+\documentclass[tikz,border=1cm]{standalone}
+  
+
+\begin{document}
+\tikzset{%
+	a/.style={
+	thick
+	},
+}
+
+\begin{tikzpicture}
+	\usetikzlibrary {graphs}
+	
+	% Licentiate studies
+	\node[circle, draw] (start) at (0.5,0) {};
+	\node[circle, draw] (S1) at (3,-1) {S1};
+	\node[circle, draw] (S2) at (5,-1) {S2};
+	\node[circle, draw] (S3) at (5,1) {S3};  	   
+	
+	\draw[a, ->] (start) to[out=-10,in=180] (S1);
+	\draw[a, ->] (start) to[out=10,in=180] (S3);
+	\draw[a, ->] (S1) -- (S2);
+	
+	% Future work studies
+	\node[circle, draw] (S4) at (7,1.3) {S4};
+	\node[circle, draw] (S6) at (9,0.5) {S6};
+	\node[circle, draw] (S5) at (7.5,-0.5) {S5};
+	\node[circle, draw] (S7) at (9,-1.5) {S7};
+	\node[circle, draw] (S8) at (11,0) {S8};
+	
+	\draw[a, ->] (S3) to[out=0,in=180] (S4);
+	\draw[a, ->] (S1) to[out=35,in=180] (S6);
+	\draw[a, ->] (S1) to[out=-25,in=180] (S7);
+	\draw[a, ->] (S2) to[out=0,in=180] (S5);
+	\draw[a, ->] (S4) to[out=0,in=120] (S8);
+	\draw[a, ->] (S6) to[out=0,in=150] (S8);
+	\draw[a, ->] (S5) to[out=0,in=200] (S8);
+	\draw[a, ->] (S7) to[out=0,in=-120] (S8);
+	 
+	% Licentiate frame
+	\coordinate (midTop) at (6,2.3); 
+	\coordinate (midBot) at (6,-2.3);
+	\node[] at (4,3) {Licentiate};
+	\draw[dashed] (start) to[out=45,in=180] (midTop);
+	\draw[dashed] (start) to[out=-45,in=180] (midBot);
+	\draw[dashed] (midTop) -- (midBot);
+		 
+	% Future work frame
+	\coordinate (endTop) at (12,3.5); 
+	\coordinate (endBot) at (12,-3.5);
+	\node[] at (8,3) {Future work}; 
+	\draw[dashed] (midTop) to[out=0,in=210] (endTop);
+	\draw[dashed] (midBot) to[out=0,in=150] (endBot);
+	
+	% Legend
+	\node[align=left] (l1) at (7, -5.5) {
+		\begin{tabular}{l}
+		Legend:\\
+		S1=\textit{We tried and failed: An experience report on a collaborative workflow for GUI-based testing}
+		\\S2=\textit{Code review guidelines for GUI-based testing artifacts}
+		\\S3=\textit{Augmented Testing to support manual GUI-based regression testing}
+		\\S4=\textit{Usability study on augmentation comprehension for GUI-based testing}
+		\\S5=\textit{Empirical evaluation of code review guidelines for GUI-based testing artifacts}
+		\\S6=\textit{Visualzing changes of GUI-based testing artifacts}
+		\\S7=\textit{Merging GUI-based testing artifacts}
+		\\S8=\textit{Empirical evaluation of collaborative GUI-based testing
+		\end{tabular}};} 
+
+\end{tikzpicture}
+
+\end{document}
