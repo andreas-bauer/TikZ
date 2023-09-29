@@ -20,6 +20,12 @@ Example: ![goals,gaps](./goals-gaps-rq.png)
 
 Created by [Michael Dorner](https://github.com/michaeldorner)
 
+### Model fitting: [model-fitting.tex](./model-fitting.tex)
+
+![model fitting](./model-fitting.png)
+
+Created by [Michael Dorner](https://github.com/michaeldorner)
+
 ## License
 
 Copyright © 2023 Andreas Bauer
