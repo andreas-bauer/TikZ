@@ -12,6 +12,10 @@ This is collection of my and others' TikZ figures.
 
 ![future research](./future-research.png)
 
+### Stacked bar chart: [stacked-bar-chart.tex](./stacked-bar-chart.tex)
+
+![stacked bar chart](./stacked-bar-chart.png)
+
 ## Other contributions
 
 ### Code review: [code_review.tex](https://gist.github.com/michaeldorner/ebc6a07ad83ff819d692858f593e0d11)
