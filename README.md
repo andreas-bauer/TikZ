@@ -16,6 +16,10 @@ This is collection of my and others' TikZ figures.
 
 ![stacked bar chart](./stacked-bar-chart.png)
 
+### VM vs container: [vm-vs-container.tex](./vm-vs-container.tex)
+
+![vm vs container](./vm-vs-container.png)
+
 ## Other contributions
 
 ### Code review: [code_review.tex](https://gist.github.com/michaeldorner/ebc6a07ad83ff819d692858f593e0d11)

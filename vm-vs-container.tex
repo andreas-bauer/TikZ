@@ -1,0 +1,75 @@
+\documentclass[tikz,border=1cm]{standalone}
+
+\usetikzlibrary{positioning,math,decorations.pathreplacing, calligraphy}
+
+\begin{document}
+
+\definecolor{ColHW}{RGB}{224, 242, 241}
+\definecolor{ColHOS}{RGB}{255, 204, 188}
+\definecolor{ColH}{RGB}{237, 231, 246}
+\definecolor{ColGOS}{RGB}{255,224,178}
+\definecolor{ColBL}{RGB}{187, 222, 251}
+\definecolor{ColApp}{RGB}{227, 242, 253}
+
+\tikzmath{
+\xshift=0.3em;
+}
+
+\tikzset{%
+	box/.style={
+	rectangle,
+	draw,
+	minimum height=2em,
+	text width=13.8em,
+	text centered,
+	},
+	smallbox/.style={
+	rectangle,
+	draw,
+	minimum height=2em,
+	text width=4em,
+	text centered,
+	},
+}
+
+\begin{tikzpicture}[font=\small,node distance=0.5em]
+
+% Virtual machines 
+\node[box, fill=ColHW] (vhw) at (0,0) {Hardware};
+\node[box, fill=ColHOS, above=of vhw] (vos) {Host OS};
+\node[box, fill=ColH, above=of vos] (vhy) {Hypervisor}; 	
+
+\node[smallbox, fill=ColGOS, above=of vhy.north] (vg) {Guest OS};
+\node[smallbox, fill=ColGOS, xshift=\xshift, left=of vg] {Guest OS};
+\node[smallbox, fill=ColGOS, xshift=-\xshift,right=of vg] {Guest OS};
+ 
+\node[smallbox, fill=ColBL, above=of vg.north] (vbl) {Bin/Libs};
+\node[smallbox, fill=ColBL, xshift=\xshift, left=of vbl] {Bin/Libs};
+\node[smallbox, fill=ColBL, xshift=-\xshift,right=of vbl] {Bin/Libs};
+
+\node[smallbox, fill=ColApp, above=of vbl.north] (va) {App 2};
+\node[smallbox, fill=ColApp, xshift=\xshift, left=of va] {App 1};
+\node[smallbox, fill=ColApp, xshift=-\xshift,right=of va] {App 3}; 
+
+\node[] at (0,-1) {Virtual Machine (VM)};
+\draw [decorate, decoration = {calligraphic  brace,amplitude=0.7em}] (-2.8,2.4) --  (-2.8,4.8) node[midway, xshift=-2em] {VM};
+ 
+ % Containers
+\node[box, fill=ColHW] (chw) at (7,0) {Hardware};
+\node[box, fill=ColHOS, above=of chw] (cos) {Host OS};
+\node[box, fill=ColH, above=of cos] (ccr) {Container Runtime}; 		
+
+\node[above=of ccr.north, minimum height=2em] (cbl) {}; % invisible node
+\node[box, fill=ColBL, text width=8.88em, xshift=-2.45em,above=of ccr.north] (cblbig) {Bin/Libs};
+\node[smallbox, fill=ColBL, xshift=-0.3em,right=of cblbig] {Bin/Libs};
+
+\node[smallbox, fill=ColApp, above=of cbl.north] (ca) {App 2};
+\node[smallbox, fill=ColApp, xshift=\xshift, left=of ca] {App 1};
+\node[smallbox, fill=ColApp, xshift=-\xshift,right=of ca] {App 3}; 
+
+\node[] at (7,-1) {Container};
+\draw [decorate, decoration = {calligraphic brace,amplitude=0.7em}] (9.8,3.93) --  (9.8,2.33) node[midway, xshift=3.5em] {Container};
+
+\end{tikzpicture}
+
+\end{document}
