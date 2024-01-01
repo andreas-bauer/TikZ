@@ -20,6 +20,11 @@ This is collection of my and others' TikZ figures.
 
 ![vm vs container](./vm-vs-container.png)
 
+### Data poisoning
+
+![data poisoning](./data-poisoning1.png)
+[data-poisoning1.tex](./data-poisoning1.tex)
+
 ## Other contributions
 
 ### Code review: [code_review.tex](https://gist.github.com/michaeldorner/ebc6a07ad83ff819d692858f593e0d11)
