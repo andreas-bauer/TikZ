@@ -1,0 +1,71 @@
+\documentclass[tikz,border=1cm]{standalone}
+\begin{document}
+
+\usetikzlibrary{shapes.geometric, math, positioning}
+
+\definecolor{ACMRed}{RGB}{253, 27, 20}
+\definecolor{ACMPurple}{RGB}{101, 1, 107}
+
+\tikzmath{
+\yHeader= 1.8;
+}
+
+\tikzset{%
+	a/.style={
+	thick
+	},
+	ar/.style={
+	thick,
+	color=ACMRed,
+	},
+	box/.style={
+		rectangle,
+		draw,
+		rounded corners,
+		minimum height=2em,
+		text width=3.6em,
+		text centered,
+	},
+	hl/.style={
+		text=ACMRed,
+	},
+	hlout/.style={
+		text=ACMRed,
+		text width=10em,
+	},
+	database/.style={
+      cylinder,
+      shape border rotate=90,
+      aspect=0.25,
+      draw
+    }
+}
+
+\begin{tikzpicture}[font=\small]
+
+% Header
+\node[text=ACMPurple] at (-3, \yHeader) {Training phase};
+\node[text=ACMPurple] at (3, \yHeader) {Test phase};
+\draw[dashed, thick, color=ACMPurple] (0, \yHeader + 0.1) to (0,-1.3);
+\draw[dashed, thick, color=ACMPurple] (-6, 1.5) to (6,1.5);
+
+% Training phase
+\node[database] (db) at (-4.5,0) {Data};
+\node[box] (model) at (-1,0){Model};
+\node[hl, above = 0.5 of db] (backdoor) {Backdoor};
+\node[below = 0.2 of db] {Training set};
+
+\draw[a, ->] (db) -- (model) node[above, pos=0.5, text width=4.5em] {Training or update};
+\draw[ar, ->] (backdoor) -- (db);
+
+% Testing phase
+\node[box] (vmodel) at (3,0) {Model (victim)};
+
+\node[hlout, right= 0.5 of vmodel] (out) {Target label};
+\node[] at (5,0.7) {Output};
+
+\draw[ar, ->, text width=4.5em] (0,0) -- (vmodel) node[pos=0.5, above] {Input with backdoor};
+\draw[ar, ->] (vmodel) -- (out.west);
+ 
+\end{tikzpicture}
+\end{document}
