@@ -1,0 +1,79 @@
+\documentclass[tikz,border=1cm]{standalone}
+\begin{document}
+
+\usetikzlibrary{shapes.geometric, math, positioning}
+
+\definecolor{ACMRed}{RGB}{253, 27, 20}
+\definecolor{ACMPurple}{RGB}{101, 1, 107}
+
+\tikzmath{
+\yHeader= 1.5;
+}
+
+\tikzset{%
+	a/.style={
+	thick
+	},
+	ar/.style={
+	thick,
+	color=ACMRed,
+	},
+	box/.style={
+		rectangle,
+		draw,
+		rounded corners,
+		minimum height=2em,
+		text width=6.5em,
+		text centered,
+	},
+	hl/.style={
+		text=ACMRed,
+		text width=8.3em,
+	},
+	hlout/.style={
+		text=ACMRed,
+		text width=10em,
+	},
+	database/.style={
+      cylinder,
+      shape border rotate=90,
+      aspect=0.25,
+      draw
+    },
+}
+
+\begin{tikzpicture}[font=\small, yscale=0.75]
+
+% Header
+\node[text=ACMPurple] at (-4.5, \yHeader) {Training phase};
+\node[text=ACMPurple] at (2, \yHeader) {Test phase};
+\draw[dashed, thick, color=ACMPurple] (0, \yHeader + 0.1) to (0,-4);
+\draw[dashed, thick, color=ACMPurple] (-9, \yHeader-0.5) to (4,\yHeader-0.5);
+ 
+
+% Training phase
+\node[box] (txtin) at (-2,-2){Text input};
+\node[box] (lp) at (-2,0){Learned parameters};
+\node[box, left= 1 of lp] (la) {Learning algorithm};
+\node[database, left= 1 of la] (td) {Data};
+
+\draw[a, ->] (td) -- (la);
+\draw[a, ->] (la) -- (lp);
+
+\node[hl, below=0.5 of td] (tdl) {Data poisoning or backdoor};
+\draw[ar, ->] (tdl) -- (td);
+
+\node[hl, below=0.5 of txtin] (adex) {Adverserial examples};
+\draw[ar, ->] (adex) -- (txtin);
+
+
+% Testing phase
+\node[box] (mout) at (2,-1) {Model's output};
+\draw[a, ->] (lp.east) -- (mout.175);
+\draw[a, ->] (txtin.east) -- (mout.185);
+
+\node[hl, below=0.5 of mout] (moutl) {Model theft and recovery of training data};
+\draw[ar, ->] (moutl) -- (mout);
+ 
+\end{tikzpicture}
+\end{document}

@@ -28,6 +28,9 @@ This is collection of my and others' TikZ figures.
 ![data poisoning](./data-poisoning2.png)
 [data-poisoning2.tex](./data-poisoning2.tex)
 
+![data poisoning](./data-poisoning3.png)
+[data-poisoning3.tex](./data-poisoning3.tex)
+
 ## Other contributions
 
 ### Code review: [code_review.tex](https://gist.github.com/michaeldorner/ebc6a07ad83ff819d692858f593e0d11)
