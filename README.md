@@ -53,6 +53,6 @@ Created by [Michael Dorner](https://github.com/michaeldorner)
 
 ## License
 
-Copyright © 2023 Andreas Bauer
+Copyright © 2023-2024 Andreas Bauer
 
 This work (TikZ source code) is licensed under  [MIT](./LICENSE).
