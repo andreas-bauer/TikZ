@@ -22,6 +22,10 @@ This is collection of my and others' TikZ figures.
 
 ### Data poisoning
 
+Data poisoning figures have been adapted from the following paper:
+
+Xue, M., Yuan, C., Wu, H., Zhang, Y., & Liu, W. (2020). **Machine learning security: Threats, countermeasures, and evaluations**. IEEE Access, 8, 74720-74742. DOI: [10.1109/ACCESS.2020.2987435](https://doi.org/10.1109/ACCESS.2020.2987435)
+
 ![data poisoning](./data-poisoning1.png)
 [data-poisoning1.tex](./data-poisoning1.tex)
 
