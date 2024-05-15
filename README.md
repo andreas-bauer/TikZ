@@ -4,7 +4,7 @@ This is collection of my and others' TikZ figures.
 
 ## My Figures
 
-### Goals, gaps, and requirements: [goals-gaps-rq.tex](./goals-gaps-rq.tex)
+### Goals, gaps, and research questions: [goals-gaps-rq.tex](./goals-gaps-rq.tex)
 
 ![goals,gaps](./goals-gaps-rq.png)
 
@@ -59,4 +59,4 @@ Created by [Michael Dorner](https://github.com/michaeldorner)
 
 Copyright © 2023-2024 Andreas Bauer
 
-This work (TikZ source code) is licensed under  [MIT](./LICENSE).
+This work (TikZ source code) is licensed under [MIT](./LICENSE).
