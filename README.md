@@ -55,6 +55,12 @@ Created by [Michael Dorner](https://github.com/michaeldorner)
 
 Created by [Michael Dorner](https://github.com/michaeldorner)
 
+### Research cycle: [research-cycle.tex](./research-cycle.tex)
+
+![research cycle](./research-cycle.png)
+
+Created by [Michael Dorner](https://michaeldorner.de/posts/exploratory-vs-confirmatory-research/)
+
 ## License
 
 Copyright © 2023-2024 Andreas Bauer
