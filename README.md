@@ -35,6 +35,14 @@ Xue, M., Yuan, C., Wu, H., Zhang, Y., & Liu, W. (2020). **Machine learning secur
 ![data poisoning](./data-poisoning3.png)
 [data-poisoning3.tex](./data-poisoning3.tex)
 
+### Technology transfer model: [technology-transfer-model.tex](./technology-transfer-model.tex)
+
+Figure have been adapted from the following paper:
+
+Gorschek, T., Garre, P., Larsson, S., & Wohlin, C. (2006). **A model for technology transfer in practice**. IEEE software, 23(6), 88-95.
+
+![technology transfer model](./technology-transfer-model.png)
+
 ## Other contributions
 
 ### Code review: [code_review.tex](https://gist.github.com/michaeldorner/ebc6a07ad83ff819d692858f593e0d11)
