@@ -1,0 +1,95 @@
+\documentclass[tikz,border=1cm]{standalone}
+\usepackage{tikz}
+\begin{document}
+
+% Tikz Library
+\usetikzlibrary{ arrows.meta, arrows, positioning}
+
+% Tailwind colors, see https://tailwindcss.com/docs/customizing-colors
+\definecolor{ColorActive}{HTML}{6ee7b7}  % Emerald 300
+\definecolor{ColorDefault}{HTML}{93c5fd} % Blue 300
+\definecolor{ColorBadge}{HTML}{2563eb}   % Blue 600
+
+\tikzset{%
+	a/.style={
+		thick,
+		> = Latex,
+		shorten <=2pt,
+		shorten >=2pt
+	},
+	c/.style={
+		circle,
+		draw=black,
+		fill=ColorDefault,
+		thick,
+		minimum width=6em, 
+		align=center
+	},
+	cbig/.style={
+		circle,
+		draw=black,
+		minimum width=8em, 
+		align=center
+	},
+	badge/.style={
+		circle, 
+		draw=white,
+		fill=ColorBadge,
+	},
+}
+
+\begin{tikzpicture}[xscale=3]
+
+% Divider
+\draw[dotted, thick] (0,0) -- (5.3,0);
+\node[] at (0.3,0.5) {Industry};
+\node[] at (0.3,-0.5) {Academia};
+
+% 1. Problem/issue
+\node[c, fill=ColorActive] (s1) at (.6,2) {\textbf{Problem/} \\ \textbf{issue}};
+\node[badge, above left = 0.2 of s1]{\textcolor{white}{\textbf{1}}};
+
+% 2. Problem formulation
+\node[cbig] (s2p) at (1.5,-0.5) {\textbf{Problem} \\ \textbf{formulation}};
+\node[c] (s2) at (1.7,-2.5) {\textbf{Study state} \\ \textbf{of the art}};
+\node[badge, left = 0.2 of s2]{\textcolor{white}{\textbf{2}}};
+
+% 4. Candidate solution
+\node[c] (s3) at (4,-0.8) {\textbf{Candidate} \\ \textbf{solution}};
+\node[badge, above left = 0.2 of s3]{\textcolor{white}{\textbf{3}}};
+
+% 4. Academic validation
+\node[c] (s4) at (5,-3.5) {\textbf{Validation} \\ \textbf{in academia}};
+\node[badge, above left = 0.2 of s4]{\textcolor{white}{\textbf{4}}};
+
+% 5. Static validation
+\node[c] (s5) at (5,2.5) {\textbf{Static} \\ \textbf{validation}};
+\node[badge, above left = 0.2 of s5]{\textcolor{white}{\textbf{5}}};
+
+% 6. Dynamic validation
+\node[c] (s6) at (3,4) {\textbf{Dynamic} \\ \textbf{validation}};
+\node[badge, above left = 0.2 of s6]{\textcolor{white}{\textbf{6}}};
+
+% 7. Release solution
+\node[c] (s7) at (2,2) {\textbf{Release} \\ \textbf{solution}};
+\node[badge, above left = 0.2 of s7]{\textcolor{white}{\textbf{7}}};
+
+% Edges connecting nodes
+\draw[a, ->] (s1) to[bend right = 10] (s2p.west);
+
+\draw[a, ->] (s2) to[bend right = 20] (s3.200);
+
+\draw[a, ->] (s3) to[bend right = 20] (s4);
+\draw[a, ->] (s4) to[bend right = 20] (s3);
+
+\draw[a, ->] (s3) to[bend right = 10] (s5);
+\draw[a, ->] (s5) to[bend right = 10] (s3);
+
+\draw[a, ->] (s5) to[bend right = 15] (s6);
+
+\draw[a, ->] (s6.west) to[bend right = 10] (s7);
+
+\draw[a, ->] (s6) to[bend right = 10] (s3.west);
+
+\end{tikzpicture}
+\end{document}
